@@ -59,6 +59,10 @@ sub inithead {
 sub getreq {
 	my ($me, $url) = @_;
 
+	if ($me->{verbose}>0) {
+		printf "getreq ...ooOO( $url )OOoo...\n";
+	}
+
 	my $req = HTTP::Request->new(GET => $url);
 	my $resp = $me->{ua}->request($req);
 
