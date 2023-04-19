@@ -102,6 +102,15 @@ sub get_info {
 
 	my $r = $me->getreq( $url );
 	if ($r->is_success) {
+		return $r->content;
+	}
+	return undef;
+}
+sub get_json {
+	my ($me, $url) = @_;
+
+	my $r = $me->getreq( $url );
+	if ($r->is_success) {
 		my $data = decode_json($r->content);
 		return $data;
 	}
